@@ -13,7 +13,7 @@ export class SchedulesComponent implements OnInit {
 	schedules: Schedule[];
 
 	dataSource = new MatTableDataSource<Schedule>();
-	displayedColumns = ['time', 'route', 'van_id', 'loc'];
+	displayedColumns = ['time', 'route', 'van_id', 'location'];
 
 	constructor(private scheduleService: ScheduleService) { }
 

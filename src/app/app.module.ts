@@ -28,7 +28,7 @@ import {MaterialModule} from "./material/material.module";
   DashboardComponent,
 
   HeroSearchComponent,
-  SchedulesComponent
+  SchedulesComponent,
 
   HeroSearchComponent
 
