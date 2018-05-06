@@ -12,10 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+
 import { SchedulesComponent } from './schedules/schedules.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MaterialModule} from "./material/material.module";
+
 
 @NgModule({
   declarations: [
@@ -24,14 +26,19 @@ import {MaterialModule} from "./material/material.module";
   HeroDetailComponent,
   MessagesComponent,
   DashboardComponent,
+
   HeroSearchComponent,
   SchedulesComponent
+
+  HeroSearchComponent
+
   ],
   imports: [
   BrowserModule,
   FormsModule,
   AppRoutingModule,
   HttpClientModule,
+
   NgbModule.forRoot(),
   MaterialModule,
 
