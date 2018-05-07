@@ -34,15 +34,21 @@ export class DateUtilService {
 			hours = hours == 24? 0: hours;
 		}
 
+		let hour: string = hours.toString();
+		if (hours < 10) {
+			hour = "0"+ hour;
+		}
 
-		let timeString = hours + ":" + minutes + ":00";
-
+		let timeString = hour + ":" + minutes + ":00";
+		
 		return  new Date('1970-01-01T' + timeString );
 	}
 
 	sameHour(time: string, date: Date): boolean {
-		let tHours = this.toDateFormat(time).getHours();
-		let dHours = date.getHours();
-		return tHours == dHours;
+		let genDate: Date = this.toDateFormat(time);
+		let tHours: number = genDate.getHours();
+		let dHours: number = date.getHours();
+		let result: boolean =  tHours == dHours;
+		return result;
 	}
 }

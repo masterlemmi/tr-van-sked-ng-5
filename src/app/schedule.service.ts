@@ -29,6 +29,7 @@
         return this.http.get<Schedule[]>(this.schedulesUrl)
         .pipe(
           map(schedules => {
+            console.log("FETCH ED "+ schedules.length)
             return schedules.filter(schedule => 
               this.dateUtilService.sameHour(schedule.time, date)
              );       

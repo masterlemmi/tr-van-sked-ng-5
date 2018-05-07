@@ -12,7 +12,7 @@ import { DateUtilService } from '../date-util.service';
 })
 export class SchedulesComponent implements OnInit {
 	schedules: Schedule[];
-
+	value = "";
 	dataSource = new MatTableDataSource<Schedule>();
 	displayedColumns = ['time', 'route', 'van_id', 'location'];
 
@@ -33,19 +33,25 @@ export class SchedulesComponent implements OnInit {
 		this.dataSource.filter = filterValue;
 	}
 
+
+	getSchedules(): void {
+		this.value = "";
+		this.dataSource.filter = "";
+		this.scheduleService.getSchedules().subscribe(
+			schedules => {
+				this.dataSource.data = schedules;
+				console.log("Found "+ schedules.length)
+			}
+			);
+	}
+
+
 	getSchedulesForTheHour(): void {
-		/*this.scheduleService.getSchedules()
-		.subscribe(schedules => {
-			this.schedules = schedules;
-			schedules.forEach(s => this.dateUtilService.getDateEquivalence(s.time))
-		}
-		);*/
-
 		this.manualDate = new Date();
-
 		this.scheduleService.getSchedulesForTheHour(this.manualDate).subscribe(
 			schedules => {
 				this.dataSource.data = schedules;
+				console.log("Found "+ schedules.length)
 			}
 			);
 	}
@@ -53,11 +59,8 @@ export class SchedulesComponent implements OnInit {
 
 	getSchedulesForTheNextHour(): void {
 		let newHour: number = this.manualDate.getHours() + 1;
-		console.log(newHour)
 		newHour = newHour == 24? 0: newHour;
-		console.log(newHour)
 		this.manualDate.setHours(newHour);
-		console.log(this.manualDate)
 		this.scheduleService.getSchedulesForTheHour(this.manualDate).subscribe(
 			schedules => {
 				this.dataSource.data = schedules;
@@ -67,11 +70,8 @@ export class SchedulesComponent implements OnInit {
 
 	getSchedulesForThePrevHour(): void {
 		let newHour: number = this.manualDate.getHours() - 1;
-		console.log(newHour)
 		newHour = newHour < 0? 23: newHour;
-		console.log(newHour)
 		this.manualDate.setHours(newHour);
-		console.log(this.manualDate)
 		this.scheduleService.getSchedulesForTheHour(this.manualDate).subscribe(
 			schedules => {
 				this.dataSource.data = schedules;
