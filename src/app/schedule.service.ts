@@ -2,10 +2,11 @@
     import { HttpClient, HttpHeaders } from '@angular/common/http';
     
     import { Observable, of } from 'rxjs';
-    import { catchError, map, tap } from 'rxjs/operators';
+    import { catchError, map, tap, filter } from 'rxjs/operators';
     
     import { Schedule } from './schedule';
     import { MessageService } from './message.service';
+    import { DateUtilService } from './date-util.service';
 
 
     const httpOptions = {
@@ -19,7 +20,24 @@
       
       constructor(
       	private http: HttpClient,
-      	private messageService: MessageService) { }
+      	private messageService: MessageService,
+        private dateUtilService: DateUtilService) { }
+
+
+      /** GET schedules for the hour from the server */
+      getSchedulesForTheHour (date: Date): Observable<Schedule[]> {
+        return this.http.get<Schedule[]>(this.schedulesUrl)
+        .pipe(
+          map(schedules => {
+            return schedules.filter(schedule => 
+              this.dateUtilService.sameHour(schedule.time, date)
+             );       
+          }),
+          tap(schedules => this.log(`fetched schedules`)),
+          catchError(this.handleError('getSchedules', []))
+          )
+
+      }
       
       /** GET schedules from the server */
       getSchedules (): Observable<Schedule[]> {
