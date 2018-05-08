@@ -1,0 +1,22 @@
+.home-frame {
+	max-width: 80%;
+	margin: 2em auto;
+	text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.home-button{
+	margin: 15px;
+	padding: 100px;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}

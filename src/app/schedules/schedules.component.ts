@@ -4,6 +4,8 @@ import { Schedule } from '../schedule';
 import { ScheduleService } from '../schedule.service';
 import {MatTableDataSource, MatPaginator} from '@angular/material';
 import { DateUtilService } from '../date-util.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-schedules',
@@ -18,9 +20,10 @@ export class SchedulesComponent implements OnInit {
 
 	private manualDate: Date = new Date();
 
-	@ViewChild(MatPaginator) paginator: MatPaginator;
-
-	constructor(private scheduleService: ScheduleService) { }
+	constructor(private scheduleService: ScheduleService,
+		private route: ActivatedRoute,
+		private location: Location
+		) { }
 
 	ngOnInit() {
 		this.getSchedulesForTheHour()
@@ -40,7 +43,6 @@ export class SchedulesComponent implements OnInit {
 		this.scheduleService.getSchedules().subscribe(
 			schedules => {
 				this.dataSource.data = schedules;
-				console.log("Found "+ schedules.length)
 			}
 			);
 	}

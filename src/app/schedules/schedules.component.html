@@ -1,46 +1,60 @@
-<button (click)="getSchedules()">Show All</button>
+<!-- <button (click)="getSchedules()">Show All</button> -->
+
+<mat-card>
+	<!-- <div style="text-align: right">
+	<mat-form-field class="filterfield">
+		<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter Schedules" 
+		[(ngModel)]="value" matTooltip="Filter by time, route, van number, or location." matTooltipPosition="above">
+	</mat-form-field>
+	</div > -->
+
+	<a mat-button color="primary"> Found {{dataSource.data.length}} schedules 
+	</a>
+		<div style="text-align: center;">
+
+		<button mat-raised-button color="primary" (click)="getSchedulesForThePrevHour()" style="float:left">
+			<mat-icon>skip_previous</mat-icon>  Previous Hour </button>
+			<button mat-raised-button color="primary" (click)="getSchedulesForTheHour()"  >
+				Current Hour <mat-icon>schedule</mat-icon> </button>
+			<button mat-raised-button color="primary" (click)="getSchedulesForTheNextHour()" style="float:right">
+				Next Hour <mat-icon>skip_next</mat-icon>  </button>
+	</div>
+
 <p>
-	<button (click)="getSchedulesForThePrevHour()">Previous Hour</button>
-	<button (click)="getSchedulesForTheHour()">Current Hour</button>
-	<button (click)="getSchedulesForTheNextHour()">Next Hour</button>
-	<p>
-		<div>
-			<mat-form-field >
-				<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter Schedules" [(ngModel)]="value">
+				<mat-divider></mat-divider>
+
+<div class="example-header">
+    <mat-form-field matTooltip="Filter by time, route, van number, or location." matTooltipPosition="right">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
 			
-			</mat-form-field>
-		</div>
+			<mat-table #table [dataSource]="dataSource">
+				<ng-container matColumnDef="time">
+					<mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+					<mat-cell *matCellDef="let element">{{element.time}}  </mat-cell>
+				</ng-container>
 
+				<ng-container matColumnDef="route">
+					<mat-header-cell *matHeaderCellDef> Route </mat-header-cell>
+					<mat-cell *matCellDef="let element">{{element.route}}</mat-cell>
+				</ng-container>
 
-		<mat-table #table [dataSource]="dataSource">
+				<ng-container matColumnDef="van_id">
+					<mat-header-cell *matHeaderCellDef> Van Number </mat-header-cell>
+					<mat-cell *matCellDef="let element">{{element.van_id}}</mat-cell>
+				</ng-container>
 
-			<ng-container matColumnDef="time">
-				<mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
-				<mat-cell *matCellDef="let element">{{element.time}}  </mat-cell>
-			</ng-container>
+				<ng-container matColumnDef="location">
+					<mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+					<mat-cell *matCellDef="let element">{{element.location}}</mat-cell>
+				</ng-container>
 
-			<ng-container matColumnDef="route">
-				<mat-header-cell *matHeaderCellDef> Route </mat-header-cell>
-				<mat-cell *matCellDef="let element">{{element.route}}</mat-cell>
-			</ng-container>
-
-			<ng-container matColumnDef="van_id">
-				<mat-header-cell *matHeaderCellDef> Van Number </mat-header-cell>
-				<mat-cell *matCellDef="let element">{{element.van_id}}</mat-cell>
-			</ng-container>
-
-			<ng-container matColumnDef="location">
-				<mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
-				<mat-cell *matCellDef="let element">{{element.location}}</mat-cell>
-			</ng-container>
-
-			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-			<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
-
-
-		</mat-table>
-
+				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+			</mat-table>
+		</mat-card>
 
 
 

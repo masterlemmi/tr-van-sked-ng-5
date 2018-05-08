@@ -1,3 +1,40 @@
-.example-form-field {
-  width: 200px;
+
+
+body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+}
+
+mat-card {
+	max-width: 80%;
+	margin: 2em auto;
+	
+}
+
+mat-toolbar-row {
+	justify-content: space-between;
+}
+
+.done {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	color: white;
+}
+
+
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-height: 500px;
+  overflow: auto;
+}
+
+
+
+.mat-form-field {
+  font-size: 14px;
+  width: 25%;
 }

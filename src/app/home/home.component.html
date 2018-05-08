@@ -1,0 +1,22 @@
+
+<div class="home-frame">
+	
+	<button mat-raised-button  class="home-button" 
+		(click)="getSchedules('out')"
+		>
+	 <button mat-fab color="primary" class="home-buttons"
+	 matTooltip="Shuttles headed Home." matTooltipPosition="above">
+     	<mat-icon>home</mat-icon>
+     </button>
+ 	</button>
+
+<button mat-raised-button class="home-button"
+	(click)="getSchedules('in')"
+		>
+	<button mat-fab color="primary" class="home-buttons"
+	matTooltip="Shuttles headed to the Office." matTooltipPosition="above">
+		<mat-icon>domain</mat-icon>
+	</button>
+</button>
+
+</div>

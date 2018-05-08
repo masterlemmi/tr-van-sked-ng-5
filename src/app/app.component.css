@@ -1,4 +1,21 @@
-    /* AppComponent's private CSS styles */
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-card {
+  width: 400px;
+  margin: 10% auto;
+}
+.mat-card-title{
+  font-size: 16px;
+}
+
+
+
+ /*
     h1 {
       font-size: 1.2em;
       color: #999;
@@ -28,4 +45,12 @@
       color: #039be5;
     }
 
+    */
 
+
+    mat-toolbar {
+      max-width:85%;
+      margin: 2em auto;
+      text-align: center;
+
+    }

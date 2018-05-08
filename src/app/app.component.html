@@ -1,8 +1,28 @@
-<mat-toolbar color="primary">Awesome toolbar</mat-toolbar>
-<h1>{{title}}</h1>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row><!-- 
+    <span><img src="./assets/devglan.png"></span> -->
+    <a mat-button (click)="goHome()" style="font-size:20px">
+      <i class="material-icons">directions_bus</i>
+    <span class="example-fill-remaining-space"> {{title}}  </span>
+    <i class="material-icons">airline_seat_recline_normal</i>
+     </a>
+
+    <span class="example-spacer"></span>
+   
+
+    <button mat-button>Login</button>
+    <button mat-button>Logout</button>
+    <button mat-button>Contact</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <!-- <nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/schedules">Heroes</a>
 </nav> -->
 <router-outlet></router-outlet>
 <!-- <app-messages></app-messages> -->
+
+
+

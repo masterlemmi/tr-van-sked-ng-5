@@ -1,0 +1,221 @@
+<div>
+	<mat-toolbar color="primary">
+		<span><mat-icon>mood</mat-icon></span>
+
+		<span>Yay, Material in Angular 2!</span>
+
+		<button mat-icon-button [mat-menu-trigger-for]="menu1">
+			<mat-icon>more_vert</mat-icon>
+		</button>
+	</mat-toolbar>
+
+
+	<mat-card>
+  <button mat-raised-button [mat-menu-trigger-for]="menu2">
+     Menu
+  </button>
+
+  <mat-menu #menu1="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Account</button>
+      <button mat-menu-item>Sign Out</button>
+  </mat-menu>
+</mat-card>
+
+
+
+	<mat-menu x-position="before" #menu2="matMenu">
+		<button mat-menu-item>Option 1</button>
+		<button mat-menu-item>Option 2</button>
+	</mat-menu>
+
+	<mat-card>
+		<button mat-button>All</button>
+		<button mat-raised-button>Of</button>
+		<button mat-raised-button color="primary">The</button>
+		<button mat-raised-button color="accent">Buttons</button>
+	</mat-card>
+
+	<mat-card>
+		<button mat-fab color="primary" matTooltip="Tooltip!" matTooltipPosition="above">
+			<mat-icon>skip_next</mat-icon>
+		</button>
+		<button mat-mini-fab color="accent">
+			<mat-icon>send</mat-icon>
+		</button>
+	</mat-card>
+
+
+<div class="example-tooltip-host" matTooltip="Tooltip2!" [matTooltipPosition]="position" >
+  <span>Show tooltip</span>
+  <mat-form-field>
+    <mat-select class="example-select" [(ngModel)]="position">
+      <mat-option value="before">Before</mat-option>
+      <mat-option value="after">After</mat-option>
+      <mat-option value="above">Above</mat-option>
+      <mat-option value="below">Below</mat-option>
+      <mat-option value="left">Left</mat-option>
+      <mat-option value="right">Right</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+<mat-card>
+  <button mat-raised-button
+          mat-tooltip="E.T. phone home"
+          tooltip-position="below">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-card>
+
+
+<mat-card>
+  <mat-button-toggle-group>
+    <mat-button-toggle>Small</mat-button-toggle>
+    <mat-button-toggle>Medium</mat-button-toggle>
+    <mat-button-toggle>Large</mat-button-toggle>
+    <mat-button-toggle disabled>X-Large</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-card>
+
+<mat-card>
+  <mat-button-toggle-group>
+    <mat-button-toggle value="good"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
+    <mat-button-toggle value="bad"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-card>
+
+
+
+<mat-card>
+  <mat-checkbox indeterminate="isIndeterminate">
+    Inderterminate
+  </mat-checkbox>
+  <mat-checkbox [checked]="isChecked">
+    Checked already
+  </mat-checkbox>
+  <mat-checkbox>
+    Unchecked
+  </mat-checkbox>
+</mat-card>
+
+
+
+
+<mat-card>
+  <mat-grid-list cols="3">
+   <mat-grid-tile [style.border-right]="'1px dashed #ddd'">
+     John
+   </mat-grid-tile>
+   <mat-grid-tile [style.border-right]="'1px dashed #ddd'">
+     Paul
+   </mat-grid-tile>
+   <mat-grid-tile>
+     Ringo
+   </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
+
+
+<mat-card>
+  <mat-icon>translate</mat-icon>
+  <mat-icon>hearing</mat-icon>
+  <mat-icon>audiotrack</mat-icon>
+  <mat-icon>mail</mat-icon>
+  <mat-icon>adjust</mat-icon>
+  <mat-icon>dock</mat-icon>
+  <mat-icon>camera</mat-icon>
+</mat-card>
+
+
+
+
+<mat-card>
+  <mat-form-field>
+    <input matInput placeholder="Your Text" dividerColor="accent">
+  </mat-form-field>
+</mat-card>
+
+
+
+
+
+
+<mat-card>
+  <mat-list>
+    <mat-list-item>
+      <img mat-list-avatar src="https://source.unsplash.com/random/200x200" alt="Desc 1">
+      <h3 mat-line>Title 1</h3>
+      <p mat-line>
+        <span>An awesome description</span>
+      </p>
+    </mat-list-item>
+
+    <mat-list-item>
+      <img mat-list-avatar src="https://source.unsplash.com/random/200x200" alt="Desc 2">
+      <h3 mat-line>Title 2</h3>
+      <p mat-line>
+        <span>Another awesome description</span>
+      </p>
+    </mat-list-item>
+
+    <mat-list-item>
+      <img mat-list-avatar src="https://source.unsplash.com/random/200x200" alt="Desc 3">
+      <h3 mat-line>Title 3</h3>
+      <p mat-line>
+        <span>Yet another awesome description</span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
+    <mat-card-title>Cards are the best</mat-card-title>
+    <mat-card-subtitle>Really, they are!</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://source.unsplash.com/random/800x800"> -->
+  <mat-card-content>
+    <p>Something pretty...</p>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+	<span class="done">
+		<button mat-fab>
+			<mat-icon>check circle</mat-icon>
+		</button>
+	</span>
+</div>
