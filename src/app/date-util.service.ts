@@ -49,7 +49,6 @@ export class DateUtilService {
 		let tHours: number = genDate.getHours();
 		let dHours: number = date.getHours();
 		let result: boolean =  tHours == dHours;
-		console.log(result)
 		return result;
 	}
 }

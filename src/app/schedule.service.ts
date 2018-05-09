@@ -25,6 +25,20 @@
 
 
       getScheduleByDirection(dirParam: string) {
+        let param: object = {params: {direction: dirParam}}
+        const url: string = dirParam == "ALL"? this.schedulesUrl+"/" : this.schedulesUrl;
+
+        return this.http.get<Schedule[]>(url, param)
+        .pipe(
+          tap(schedules => this.log(`fetched schedules`)),
+          catchError(this.handleError('getSchedules', []))
+          )
+
+      }
+
+
+      //USED FOR TESTING NO SERVER PRSEENT YET
+      /*getScheduleByDirection(dirParam: string) {
         return this.http.get<Schedule[]>(this.schedulesUrl)
         .pipe(
           map(schedules => {
@@ -35,23 +49,7 @@
           catchError(this.handleError('getSchedules', []))
           )
 
-      }
-
-      /** GET schedules for the hour from the server */
-      getSchedulesForTheHour (date: Date): Observable<Schedule[]> {
-        return this.http.get<Schedule[]>(this.schedulesUrl)
-        .pipe(
-          map(schedules => {
-            console.log("FETCH ED "+ schedules.length)
-            return schedules.filter(schedule => 
-              this.dateUtilService.sameHour(schedule.time, date)
-              );       
-          }),
-          tap(schedules => this.log(`fetched schedules`)),
-          catchError(this.handleError('getSchedules', []))
-          )
-
-      }
+      }*/
 
       /** GET schedules from the server */
       getSchedules (): Observable<Schedule[]> {
@@ -125,7 +123,7 @@
       		catchError(this.handleError<any>('updateSchedule'))
       		);
       }
-      
+     
       /**
        * Handle Http operation that failed.
        * Let the app continue.

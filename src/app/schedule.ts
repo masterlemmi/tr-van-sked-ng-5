@@ -5,4 +5,5 @@ export class Schedule {
   route: string;
   location: string;
   direction: string;
+  
 }

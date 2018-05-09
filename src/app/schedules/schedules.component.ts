@@ -56,17 +56,6 @@ export class SchedulesComponent implements OnInit {
 	}
 
 
-	getSchedules(): void {
-		this.value = "";
-		this.dataSource.filter = "";
-		this.scheduleService.getSchedules().subscribe(
-			schedules => {
-				this.dataSource.data = schedules;
-			}
-			);
-	}
-
-
 	getSchedulesForTheHour(): void {
 		this.manualDate = new Date();
 		console.log("FILTERING " + this.schedules.length)
