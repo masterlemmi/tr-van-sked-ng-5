@@ -34,7 +34,7 @@ import { AdminComponent } from './admin/admin.component';
 
   ],
   imports: [  BrowserModule,  FormsModule,  AppRoutingModule,  HttpClientModule,  
-       MaterialModule, BrowserAnimationsModule, ReactiveFormsModule 
+       MaterialModule, BrowserAnimationsModule, ReactiveFormsModule, 
       // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
       // and returns simulated server responses.
       // Remove it when a real server is ready to receive requests.

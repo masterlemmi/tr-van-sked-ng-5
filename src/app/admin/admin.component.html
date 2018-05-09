@@ -1,3 +1,102 @@
-<p>
-  admin works!
-</p>
+
+
+<mat-card>
+	<div>Upload  Schedule{{uploadKey.value}}</div>
+
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="example-container">
+  		<mat-form-field>
+    		<input matInput placeholder="Enter key" type ="password" formControlName="uploadKey" #uploadKey >
+    		  <mat-error *ngIf="isFieldInvalid('uploadKey')">
+    		
+            Please enter the secret upload key.
+          </mat-error>
+  		</mat-form-field>
+	</div>
+
+    <input  type="file" (change)="onFileChanged($event)" required  	formControlName="scheduleFile" >
+
+    	 <mat-error *ngIf="isFieldInvalid('scheduleFile')">
+            Please enter a valid schedule file.
+          </mat-error>
+    
+    <div style="padding:10px">
+    	<button mat-raised-button color="primary"  type="submit">Upload</button>
+    </div>
+
+	</form>
+
+	<p>
+	<div [hidden]="hideStatus">{{status}}</div>
+	<div [hidden]="hideSpinner">
+	<mat-spinner ></mat-spinner> 
+	</div>
+</mat-card>
+
+<!-- 
+
+<div >
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="User" 
+          formControlName="userName" required>
+          <mat-error *ngIf="isFieldInvalid('userName')">
+            Please inform your user name
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" 
+          formControlName="password" required>
+          <mat-error *ngIf="isFieldInvalid('userName')">
+            Please inform your password
+          </mat-error>
+        </mat-form-field>
+
+
+
+
+<div>
+    <input  type="file" (change)="onFileChanged($event)">
+    <div style="padding:10px">
+    <button mat-raised-button color="primary" type="submit">Upload</button>
+    </div>
+</div>
+        
+        
+
+        
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+	 <mat-form-field>
+	   <button mat-button> UPLOAD </button> 
+  </mat-form-field>
+
+<div>
+	<mat-form-field>
+		<input matInput placeholder="Upload Key" required>
+	</mat-form-field>
+	</div>
+	<div>
+		<input type="file" (change)="onFileChanged($event)">
+	</div>
+	<div>
+		<button mat-button (click)="onUpload()">Upload!</button>
+	</div> -->
