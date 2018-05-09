@@ -4,7 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`ng serve` serves without proxy
+'ng start' serves proxy
+
+
 
 ## Code scaffolding
 
@@ -12,16 +15,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+"remove proxy? config? so it looks at same server and port
+Run `ng build --prod` 
+Save artifacts from  `dist/` directory to web apps folder of maven proj
+change base href from / to .
+?mvn clena package  == executes commands to copy files from ng to webapps
+se ta way to make use of application-dev-properties
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
