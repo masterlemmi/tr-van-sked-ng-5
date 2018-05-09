@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialTestComponent } from './material-test/material-test.component';
 import { HomeComponent } from './home/home.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -27,11 +29,12 @@ import { HomeComponent } from './home/home.component';
   ScheduleDetailComponent,
   LoginComponent,
   MaterialTestComponent,
-  HomeComponent
+  HomeComponent,
+  AdminComponent,
 
   ],
   imports: [  BrowserModule,  FormsModule,  AppRoutingModule,  HttpClientModule,  
-       MaterialModule, BrowserAnimationsModule,
+       MaterialModule, BrowserAnimationsModule, ReactiveFormsModule 
       // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
       // and returns simulated server responses.
       // Remove it when a real server is ready to receive requests.

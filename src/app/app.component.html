@@ -11,9 +11,10 @@
     <span class="example-spacer"></span>
    
 
-    <button mat-button>Login</button>
-    <button mat-button>Logout</button>
-    <button mat-button>Contact</button>
+    <button mat-button (click)="login()" *ngIf="!(isLoggedIn$ | async)">Login</button>
+    <button mat-button routerLink="admin" *ngIf="isLoggedIn$ | async">Admin</button>
+    <button mat-button (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
+    <button mat-button> Contact</button>
   </mat-toolbar-row>
 </mat-toolbar>
 
