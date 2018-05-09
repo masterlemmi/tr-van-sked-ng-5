@@ -2,16 +2,23 @@
 	max-width: 80%;
 	margin: 2em auto;
 	text-align: center;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.home-parent-button{
+  margin: 15px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
 .home-button{
 	margin: 15px;
-	padding: 100px;
+	padding: 50px;
 }
 
 .done {
@@ -19,4 +26,8 @@
   bottom: 20px;
   right: 20px;
   color: white;
+}
+
+.button-text{
+  
 }

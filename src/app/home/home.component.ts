@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   }
 
   getSchedules(direction: string): void  {
-  		const dir: string = "/schedules/:" + direction;
-		this.router.navigateByUrl(dir);
+  		const dir: string = "/schedules/" + direction;
+		  this.router.navigateByUrl(dir);
 	};
 }

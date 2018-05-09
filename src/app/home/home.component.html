@@ -1,22 +1,31 @@
 
 <div class="home-frame">
 	
-	<button mat-raised-button  class="home-button" 
-		(click)="getSchedules('out')"
-		>
-	 <button mat-fab color="primary" class="home-buttons"
-	 matTooltip="Shuttles headed Home." matTooltipPosition="above">
-     	<mat-icon>home</mat-icon>
-     </button>
- 	</button>
-
-<button mat-raised-button class="home-button"
-	(click)="getSchedules('in')"
-		>
-	<button mat-fab color="primary" class="home-buttons"
-	matTooltip="Shuttles headed to the Office." matTooltipPosition="above">
-		<mat-icon>domain</mat-icon>
+	<button mat-raised-button  class="home-parent-button" (click)="getSchedules('outgoing')">
+		<div>
+			<button mat-fab color="primary" class="home-buttons" matTooltip="Shuttles headed out." matTooltipPosition="above">
+				<mat-icon>home</mat-icon>
+			</button>
+		</div>
+		<div>HOME</div>
 	</button>
-</button>
+
+	<button mat-raised-button class="home-parent-button" (click)="getSchedules('incoming')">
+		<div>
+			<button mat-fab color="primary" class="home-buttons" matTooltip="Shuttles coming in." matTooltipPosition="above">
+				<mat-icon>domain</mat-icon>
+			</button>
+		</div>
+		<div>OFFICE</div>
+	</button>
+
+	<button mat-raised-button class="home-parent-button" (click)="getSchedules('all')">
+		<div>
+			<button mat-fab color="primary" class="home-buttons" matTooltip="All shuttle schedules." matTooltipPosition="above">
+				<mat-icon>list</mat-icon>
+			</button>
+		</div>
+		<div>ALL</div>
+	</button>
 
 </div>

@@ -4,7 +4,7 @@ import { Schedule } from '../schedule';
 import { ScheduleService } from '../schedule.service';
 import {MatTableDataSource, MatPaginator} from '@angular/material';
 import { DateUtilService } from '../date-util.service';
-import { ActivatedRoute } from '@angular/router';
+import {Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -13,22 +13,41 @@ import { Location } from '@angular/common';
 	styleUrls: ['./schedules.component.css']
 })
 export class SchedulesComponent implements OnInit {
-	schedules: Schedule[];
+	schedules: Schedule[] = [];
 	value = "";
 	dataSource = new MatTableDataSource<Schedule>();
 	displayedColumns = ['time', 'route', 'van_id', 'location'];
+	message = "";
 
 	private manualDate: Date = new Date();
 
 	constructor(private scheduleService: ScheduleService,
 		private route: ActivatedRoute,
-		private location: Location
+		private location: Location,
+		private router: Router,
+		private dateUtilService: DateUtilService
 		) { }
 
 	ngOnInit() {
-		this.getSchedulesForTheHour()
-	}
+		const direction = this.route.snapshot.paramMap.get('dir');
+		let dirParam: string;
+		if(direction == "incoming"){
+			dirParam = "IN";
+		} else if (direction == "outgoing") {
+			dirParam = "OUT";
+		} else if (direction == "all"){
+			dirParam = "ALL";
+		} else {
+			this.router.navigateByUrl("/home");
+		}
 
+		this.scheduleService.getScheduleByDirection(dirParam).subscribe(
+			schedules => {
+				console.log("FINALLLY recieved " + schedules.length)
+				this.schedules = schedules;
+				this.getSchedulesForTheHour();
+			});
+	}
 
 	applyFilter(filterValue: string) {
 		filterValue = filterValue.trim();
@@ -50,12 +69,12 @@ export class SchedulesComponent implements OnInit {
 
 	getSchedulesForTheHour(): void {
 		this.manualDate = new Date();
-		this.scheduleService.getSchedulesForTheHour(this.manualDate).subscribe(
-			schedules => {
-				this.dataSource.data = schedules;
-				console.log("Found "+ schedules.length)
-			}
-			);
+		console.log("FILTERING " + this.schedules.length)
+		this.dataSource.data = this.schedules.filter(schedule =>
+			this.dateUtilService.sameHour(schedule.time, this.manualDate)
+		);
+
+		console.log(this.dataSource.data.length + " == " + "table list")
 	}
 
 
@@ -63,27 +82,19 @@ export class SchedulesComponent implements OnInit {
 		let newHour: number = this.manualDate.getHours() + 1;
 		newHour = newHour == 24? 0: newHour;
 		this.manualDate.setHours(newHour);
-		this.scheduleService.getSchedulesForTheHour(this.manualDate).subscribe(
-			schedules => {
-				this.dataSource.data = schedules;
-			}
-			);
+		this.dataSource.data = this.schedules.filter(schedule =>
+			this.dateUtilService.sameHour(schedule.time, this.manualDate)
+		);
 	}
 
 	getSchedulesForThePrevHour(): void {
 		let newHour: number = this.manualDate.getHours() - 1;
 		newHour = newHour < 0? 23: newHour;
 		this.manualDate.setHours(newHour);
-		this.scheduleService.getSchedulesForTheHour(this.manualDate).subscribe(
-			schedules => {
-				this.dataSource.data = schedules;
-			}
-			);
+		this.dataSource.data = this.schedules.filter(schedule =>
+			this.dateUtilService.sameHour(schedule.time, this.manualDate)
+		);
 	}
-
-
-
-
 
 
 
