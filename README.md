@@ -15,10 +15,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-"remove proxy? config? so it looks at same server and port
+"no need to remove proxy conifg.. apparently still working with it set in place
 Run `ng build --prod` 
-Save artifacts from  `dist/` directory to web apps folder of maven proj
-change base href from / to .
-?mvn clena package  == executes commands to copy files from ng to webapps
-se ta way to make use of application-dev-properties
+Save artifacts from  `dist/{folder}` directory to web apps folder of maven proj
+mvn spring-boot:run
+
+access in localhost:8079
+
+may need to remove port from maven proj
 
