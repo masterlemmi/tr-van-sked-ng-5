@@ -16,7 +16,7 @@ export class SchedulesComponent implements OnInit {
 	schedules: Schedule[] = [];
 	value = "";
 	dataSource = new MatTableDataSource<Schedule>();
-	displayedColumns = ['time', 'route', 'van_id', 'location'];
+	displayedColumns = ['time', 'route', 'vanId', 'location'];
 	message = "";
 
 	private manualDate: Date = new Date();
@@ -98,6 +98,6 @@ export class SchedulesComponent implements OnInit {
 export interface Element {
 	time: number;
 	route: string;
-	van_id: string;
+	vanId: string;
 	loc: string;
 }

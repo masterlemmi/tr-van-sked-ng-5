@@ -11,7 +11,7 @@ import { Observable} from 'rxjs';
 })
 export class AppComponent implements OnInit  {
 
-	title = 'TR Shuttle Schedules';
+	title = 'Shuttle Schedules';
 	isLoggedIn$: Observable<boolean>; 
 
 	constructor(private router: Router,
