@@ -19,6 +19,9 @@ export class SchedulesComponent implements OnInit {
 	displayedColumns = ['time', 'route', 'vanId', 'location'];
 	message = "";
 
+
+	
+
 	private manualDate: Date = new Date();
 
 	constructor(private scheduleService: ScheduleService,

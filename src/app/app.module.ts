@@ -18,6 +18,7 @@ import { MaterialTestComponent } from './material-test/material-test.component';
 import { HomeComponent } from './home/home.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { AdminComponent } from './admin/admin.component';
 
   ],
   imports: [  BrowserModule,  FormsModule,  AppRoutingModule,  HttpClientModule,  
-       MaterialModule, BrowserAnimationsModule, ReactiveFormsModule, 
+       MaterialModule, BrowserAnimationsModule, ReactiveFormsModule, FlexLayoutModule
       // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
       // and returns simulated server responses.
       // Remove it when a real server is ready to receive requests.

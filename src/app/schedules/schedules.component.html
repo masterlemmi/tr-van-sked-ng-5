@@ -10,21 +10,29 @@
 
 	<a mat-button color="primary"> Found {{dataSource.data.length}} schedules 
 	</a>
-		<div style="text-align: center;">
-
-		<button mat-raised-button color="primary" (click)="getSchedulesForThePrevHour()" style="float:left">
-			<mat-icon>skip_previous</mat-icon>  Previous Hour </button>
-			<button mat-raised-button color="primary" (click)="getSchedulesForTheHour()"  >
-				Current Hour <mat-icon>schedule</mat-icon> </button>
-			<button mat-raised-button color="primary" (click)="getSchedulesForTheNextHour()" style="float:right">
-				Next Hour <mat-icon>skip_next</mat-icon>  </button>
-	</div>
-
+<mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-tile  
+    colspan="1"  rowspan="1"  >  
+     <button mat-raised-button color="primary" (click)="getSchedulesForThePrevHour()" >
+    <mat-icon>skip_previous</mat-icon>  Previous Hour </button>
+</mat-grid-tile>
+ <mat-grid-tile  
+    colspan="1"  rowspan="1"  >  
+    <button mat-raised-button color="primary" (click)="getSchedulesForTheHour()"  >
+      Current Hour <mat-icon>schedule</mat-icon> </button>
+</mat-grid-tile>
+ <mat-grid-tile  
+    colspan="1"  rowspan="1"  >  
+     
+      <button mat-raised-button color="primary" (click)="getSchedulesForTheNextHour()" style="float:right">
+        Next Hour <mat-icon>skip_next</mat-icon>  </button>
+</mat-grid-tile>
+</mat-grid-list>
 <p>
 				<mat-divider></mat-divider>
 
-<div class="example-header">
-    <mat-form-field matTooltip="Filter by time, route, van number, or location." matTooltipPosition="right">
+<div style="width:100%">
+    <mat-form-field matTooltip="Filter by time, route, van number, or location." matTooltipPosition="right" style="width:50%">
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
   </div>
