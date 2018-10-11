@@ -14,18 +14,18 @@
   <mat-grid-tile  
     colspan="1"  rowspan="1"  >  
      <button mat-raised-button color="primary" (click)="getSchedulesForThePrevHour()" >
-    <mat-icon>skip_previous</mat-icon>  Previous Hour </button>
+    <mat-icon>skip_previous</mat-icon>  <span class="not-for-small">Previous Hour </span> </button>
 </mat-grid-tile>
  <mat-grid-tile  
     colspan="1"  rowspan="1"  >  
     <button mat-raised-button color="primary" (click)="getSchedulesForTheHour()"  >
-      Current Hour <mat-icon>schedule</mat-icon> </button>
+     <span class="not-for-small">Current Hour </span> <mat-icon>schedule</mat-icon> </button>
 </mat-grid-tile>
  <mat-grid-tile  
     colspan="1"  rowspan="1"  >  
      
       <button mat-raised-button color="primary" (click)="getSchedulesForTheNextHour()" style="float:right">
-        Next Hour <mat-icon>skip_next</mat-icon>  </button>
+       <span class="not-for-small">Next Hour </span> <mat-icon>skip_next</mat-icon>  </button>
 </mat-grid-tile>
 </mat-grid-list>
 <p>

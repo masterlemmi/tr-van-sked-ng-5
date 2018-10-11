@@ -38,3 +38,10 @@ mat-toolbar-row {
   font-size: 14px;
   width: 25%;
 }
+
+
+@media (max-width: 600px) {           
+   .not-for-small {
+      display: none;
+   }
+}
